@@ -1,3 +1,4 @@
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -27,14 +28,32 @@ casualty_type = df['casualty_type']
 casualty_home_area_type = df['casualty_home_area_type']
 casualty_imd_decile = df['casualty_imd_decile']
 lsoa_of_casualty = df['lsoa_of_casualty']
+# Shape of the dataset
+shape = df.shape
 
+# Data types of the columns
+data_types = df.dtypes
+
+# Check for missing values
+missing_values = df.isnull().sum()
+
+# Descriptive statistics of the numerical columns
+descriptive_stats = df.describe()
+
+# Count of unique values for each column
+unique_counts = df.nunique()
+print("Description of the DataFrame")
+print(shape, "--------------------")
+print(data_types, "--------------------")
+print(descriptive_stats, "--------------------")
+print(unique_counts, "--------------------")
 
 plt.hist(age_of_casualty, bins='auto', edgecolor='black')
 plt.title('Age Distribution')
 plt.xlabel('Age')
 plt.ylabel('Frequency')
 
+plt.bar(car_passenger,sex_of_casualty)
+
 plt.show()
-
-
 
