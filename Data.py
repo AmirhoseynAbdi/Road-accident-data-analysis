@@ -1,9 +1,19 @@
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
+import os
 
-file_path = input('Enter the File path(type "data.csv" for default):')
+
+while True:
+    file_path = input('Enter the File path(type "data.csv" for default):')
+    try:
+        if not os.path.exists(file_path):
+            print("File path does not exist.")
+        else:
+            print("File path is valid.")
+            break
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 df = pd.read_csv(file_path)
 df_clean = df[(df['age_of_casualty'] >= 0) & ((df['sex_of_casualty'] == 1) |
