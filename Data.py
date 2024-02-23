@@ -82,7 +82,7 @@ while True:
         plt.show()
     elif inp == '7':
         plt.figure(figsize=(8, 6))
-        sns.countplot(x='casualty_severity', hue='casualty_home_area_type',
+        sns.countplot(x='casualty_home_area_type', hue='casualty_severity',
                       data=df)
         plt.title('Casualty Severity by Home Area Type')
         plt.xlabel('Casualty Severity')
