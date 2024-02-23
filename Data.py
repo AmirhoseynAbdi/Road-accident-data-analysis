@@ -25,7 +25,6 @@ print(shape, "--------------------")
 print(data_types, "--------------------")
 print(descriptive_stats, "--------------------")
 print(unique_counts, "--------------------")
-
 print('Analysis List :')
 print('1. Distribution by Gender')
 print('2. Distribution by Age')
@@ -36,7 +35,6 @@ print('6. Distribution of Casualty Home Area Type Graph')
 print('7. Severity by Home Area Type Graph')
 print('8. Distribution of Casualty class Graph')
 print('9. Distribution of Vehicle Type')
-print('10. Correlation Heatmap Matrix')
 while True:
     inp = input('Enter the Number of your desired analysis(enter anything '
                 'else to end):')
@@ -104,16 +102,6 @@ while True:
         sns.countplot(x='vehicle_reference', data=df_clean)
         plt.title('Distribution of Vehicle Type Reference')
         plt.xlabel('Vehicle Type')
-        plt.show()
-    elif inp == '10':
-        corr = df.corr()
-        mask = np.triu(np.ones_like(corr, dtype=bool))
-        plt.figure(figsize=(15, 12))
-        cmap = sns.diverging_palette(230, 20, as_cmap=True)
-        sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
-                    square=True, linewidths=.5, cbar_kws={"shrink": .5},
-                    annot=True)
-        plt.title('Correlation Matrix Heatmap')
         plt.show()
     else:
         break
