@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-file_path = input('Enter the File path:')
+file_path = input('Enter the File path(type "data.csv" for default):')
 
 df = pd.read_csv(file_path)
 df_clean = df[(df['age_of_casualty'] >= 0) & ((df['sex_of_casualty'] == 1) |
@@ -28,12 +28,12 @@ print(unique_counts, "--------------------")
 print('Analysis List :')
 print('1. Distribution by Gender')
 print('2. Distribution by Age')
-print('3. Accident Severity Distribution Graph')
-print('4. Accident Severity by Casualty Class Graph')
-print('5. Severity by Sex Distribution Graph')
-print('6. Distribution of Casualty Home Area Type Graph')
-print('7. Severity by Home Area Type Graph')
-print('8. Distribution of Casualty class Graph')
+print('3. Distribution by Severity')
+print('4. Accident Severity by Casualty Class')
+print('5. Severity by Sex Distribution')
+print('6. Distribution of Casualty Home Area Type')
+print('7. Severity by Home Area Type')
+print('8. Distribution of Casualty class')
 print('9. Distribution of Vehicle Type')
 while True:
     inp = input('Enter the Number of your desired analysis(enter anything '
@@ -62,7 +62,6 @@ while True:
         sns.countplot(x='casualty_severity', hue='casualty_class', data=df)
         plt.title('Casualty Severity by Casualty Class')
         plt.xlabel('Casualty Severity')
-        plt.ylabel('Count')
         plt.legend(title='Casualty Class',
                    labels=['Driver', 'Passenger', 'Pedestrian'])
         plt.show()
@@ -71,7 +70,6 @@ while True:
         sns.countplot(x='casualty_severity', hue='sex_of_casualty', data=df)
         plt.title('Casualty Severity by Sex')
         plt.xlabel('Casualty Severity')
-        plt.ylabel('Count')
         plt.legend(title='Sex of Casualty',
                    labels=['Unknown', 'Male', 'Female'])
         plt.show()
@@ -93,9 +91,9 @@ while True:
         plt.show()
     elif inp == '8':
         plt.figure(figsize=(8, 6))
-        sns.countplot(x='casualty_severity', data=df)
-        plt.title('Distribution of Accident Severities')
-        plt.xlabel('Casualty Severity')
+        sns.countplot(x='casualty_class', data=df)
+        plt.title('Distribution of Casualty CLass')
+        plt.xlabel('Casualty Class')
         plt.show()
     elif inp == '9':
         plt.figure(figsize=(10, 8))
